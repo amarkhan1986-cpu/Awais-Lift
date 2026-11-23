@@ -1,6 +1,6 @@
 /* Awais Lift offline shell for the one-file site: the app opens even without internet,
    and the data it changed offline is sent by the app itself when the connection returns. */
-const V = 'awl-1f-53619367';
+const V = 'awl-1f-47117245';
 const CDN = ["https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js", "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js", "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js", "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js", "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js", "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"];
 const OK_HOST = /(^|\.)(gstatic\.com|fonts\.googleapis\.com|cdnjs\.cloudflare\.com|cdn\.jsdelivr\.net)$/;
 self.addEventListener('install', e => {

@@ -837,11 +837,11 @@ i.sw.k-off,.tr-bar i.k-off,.tr-track i.k-off{background:repeating-linear-gradien
 .k-tbl tr:nth-child(even) td{background:#FAFBFC}
 .k-tbl.k-sum{width:55%;margin-inline-start:auto}.k-tbl.k-sum td:last-child{text-align:left;font-weight:700}
 .k-tbl.k-sum tr.tot td{background:#1D2228!important;color:#fff;font-size:14px}
-.k-parties,.k-p{font-size:13px;line-height:1.95;text-align:justify;text-justify:inter-word;margin:0 0 10px}
+.k-parties,.k-p{font-size:var(--kf,13px);line-height:var(--kl,1.95);text-align:justify;text-justify:inter-word;margin:0 0 10px}
 .k-sec{font-weight:800;font-size:14.5px;color:#C96A0B;margin:6px 0 8px;padding-bottom:4px;border-bottom:1px solid #F1D3B0}
-.k-cl{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;margin-bottom:6px}
+.k-cl{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;margin-bottom:var(--kg,6px)}
 .k-n{width:24px;height:24px;border-radius:50%;background:#FFF1E1;color:#C96A0B;font-weight:800;font-size:12.5px;display:grid;place-items:center;margin-top:2px}
-.k-cl p{margin:0;font-size:12.8px;line-height:1.95;text-align:justify;text-justify:inter-word}
+.k-cl p{margin:0;font-size:var(--kf,12.8px);line-height:var(--kl,1.95);text-align:justify;text-justify:inter-word}
 .d-hl{color:#C96A0B;font-weight:800}
 .k-sign{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px;break-inside:avoid}
 .k-sign.one{grid-template-columns:1fr;max-width:52%}
@@ -917,6 +917,10 @@ i.sw.k-off,.tr-bar i.k-off,.tr-track i.k-off{background:repeating-linear-gradien
 .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
 
 .leaflet-tooltip.lp-num{font-size:15px;padding:0;background:none;border:0;box-shadow:none;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.45)}.leaflet-tooltip.lp-num:before{display:none}
+.loc-strip{display:flex;align-items:center;gap:12px;padding:10px 14px;margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}.loc-strip>.ic{color:var(--signal);flex:none}.loc-strip b{display:block}.loc-strip small{color:var(--ink-3)}
+.k-cont{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:8px 0 10px;padding-bottom:6px;border-bottom:2px solid #EF8418}.k-cont b{font-weight:800;font-size:16px}.k-cont span{font-size:12px;color:#6B737C}
+.sd-step{display:flex;gap:12px;align-items:flex-start;padding:12px 0}.sd-step+.sd-step{border-top:1px solid var(--line-2)}.sd-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--signal-soft);color:var(--signal-strong)}.sd-step.ok .sd-n{background:var(--ok-soft);color:var(--ok)}.sd-n .ic{width:18px;height:18px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}.pdf-stage,.flow-host,.page,.page *{-webkit-text-size-adjust:none!important;text-size-adjust:none!important}
 
 </style>
 </head>
@@ -1142,11 +1146,11 @@ function logoSVG(cls = 'logo', opts = {}) {
   }).join('');
   return `<svg class="${cls}" viewBox="0 0 120 100" role="img" aria-label="${L('شعار مؤسسة جديد مصاعد الراية', 'New Al Raya Elevators logo')}">
   <defs>
-    <radialGradient id="${k}o" cx="42%" cy="34%" r="70%"><stop offset="0" stop-color="#FFC56B"/><stop offset=".55" stop-color="#F28A1A"/><stop offset="1" stop-color="#C9620A"/></radialGradient>
+    <radialGradient id="${k}o" cx="42%" cy="34%" r="70%"><stop offset="0" stop-color="${opts.light ? '#F49A1C' : '#FFC56B'}"/><stop offset=".55" stop-color="${opts.light ? '#EF8714' : '#F28A1A'}"/><stop offset="1" stop-color="${opts.light ? '#D8690B' : '#C9620A'}"/></radialGradient>
     <linearGradient id="${k}r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A525B"/><stop offset=".5" stop-color="#1A1E23"/><stop offset="1" stop-color="#0B0D10"/></linearGradient>
   </defs>${arcs}
   <circle cx="60" cy="50" r="36" fill="url(#${k}r)"/><circle cx="60" cy="50" r="35" fill="none" stroke="#6B747E" stroke-opacity=".55" stroke-width="1"/>
-  <circle cx="60" cy="50" r="29" fill="url(#${k}o)"/><ellipse cx="60" cy="35" rx="19" ry="8.5" fill="#fff" fill-opacity=".22"/>
+  <circle cx="60" cy="50" r="29" fill="url(#${k}o)"/><ellipse cx="60" cy="35" rx="19" ry="8.5" fill="#fff" fill-opacity="${opts.light ? '.07' : '.22'}"/>
   <path fill="#15181C" fill-rule="evenodd" d="M47.5 31.5H63.2C70.9 31.5 75 36.6 75 42.8C75 48.1 71.8 51.7 67 52.9L75.2 68.5H65.6L58.6 54H56V68.5H47.5ZM56 38.3V47.4H62.6C65.4 47.4 67 45.8 67 42.8C67 39.9 65.4 38.3 62.6 38.3Z"/>
 </svg>`;
 }
@@ -2122,7 +2126,7 @@ function runAutomation() {
   });
 
   /* 3) month-start schedule: every building with a running contract, on a working day */
-  const mk = monthKey(T); let created = 0;
+  const mk = monthKey(T); let created = 0; const fresh = [];
   S.buildings.forEach(b => {
     if (S.visits.some(v => v.buildingId === b.id && v.month === mk)) return;
     const [yy, mm] = mk.split('-').map(Number);
@@ -2131,9 +2135,10 @@ function runAutomation() {
     let date = scheduleDate(mk, b.maintDay); if (date < T) date = nextWorkday(T);
     const v = { id: `v-${b.id}-${mk}`, month: mk, buildingId: b.id, techId: S.settings.autoAssign && tech(b.techId)?.active ? b.techId : null, date, status: 'scheduled', liftIds: liftsOf(b.id).map(l => l.id), report: null, flags: {} };
     if (S.visits.some(x => x.id === v.id)) return;
-    S.visits.push(v); created++;
-    if (v.techId) notify('newMaint', v.techId, LL('مهمة صيانة جديدة', 'New maintenance task'), LL(`${b.name} · ${fmtDate(v.date)}`, `${b.name} · ${fmtDate(v.date)}`), { view: 'task', id: v.id }, `n-nm-${v.id}`);
+    S.visits.push(v); created++; fresh.push(v);
   });
+  if (created && S.settings.schedByLoc !== false) planByLoc(mk);
+  fresh.forEach(v => { const b = building(v.buildingId); if (v.techId) notify('newMaint', v.techId, LL('مهمة صيانة جديدة', 'New maintenance task'), LL(`${b.name} · ${fmtDate(v.date)}`, `${b.name} · ${fmtDate(v.date)}`), { view: 'task', id: v.id }, `n-nm-${v.id}`); });
   if (created) { notify('newMaint', 'owner', LL(`تم إنشاء جدول ${MONTHS_AR[+mk.slice(5) - 1]} تلقائياً`, `${MONTHS_EN[+mk.slice(5) - 1]} schedule created automatically`), S.settings.autoAssign ? LL(`أُضيفت ${created} زيارة في أيام العمل وأُبلغ الفنيون`, `${created} visits added on working days; technicians notified`) : LL(`أُضيفت ${created} زيارة في أيام العمل. افتح الجدول وأرسلها لمن تريد من الفنيين.`, `${created} visits added on working days. Open the schedule and send them to whichever technician you choose.`), { view: 'schedule' }, `n-sched-${mk}-${created}`); log(LL(`جدولة تلقائية: ${created} زيارة`, `Auto-schedule: ${created} visits`), SYS); changes.push('sched'); }
 
   /* 4) overdue */
@@ -2983,7 +2988,7 @@ VIEW.schedule = () => {
   ${segs('sfilter', [['all', L('الكل', 'All'), all.length], ['open', L('مجدولة', 'Scheduled'), all.filter(v => v.status !== 'done' && !isOverdue(v)).length], ['late', L('متأخرة', 'Overdue'), all.filter(isOverdue).length], ['done', L('مكتملة', 'Done'), all.filter(v => v.status === 'done').length]], UIS.sfilter)}`;
   if (UIS.smode === 'cal') return head + calendarHTML(mk, f);
   const groups = {}; f.forEach(v => (groups[v.date] = groups[v.date] || []).push(v));
-  return head + (Object.keys(groups).length ? Object.entries(groups).map(([d, vs]) => `<div class="faint" style="margin:14px 4px 6px;font-weight:600">${fmtDateLong(d)}${d === today() ? ' · ' + L('اليوم', 'Today') : ''} ${offPill(d)}</div><div class="card"><div class="list">${vs.map(visitRow).join('')}</div></div>`).join('') : `<div class="card">${empty('cal', L('لا زيارات في هذا العرض', 'No visits in this view'), all.length ? L('غيّر الفلتر لعرض باقي الزيارات.', 'Change the filter to see more.') : L('استخدم زر «إنشاء جدول».', 'Use “Create schedule”.'))}</div>`);
+  return head + (Object.keys(groups).length ? Object.entries(groups).map(([d, vs]) => `<div class="faint" style="margin:14px 4px 6px;font-weight:600">${fmtDateLong(d)}${d === today() ? ' · ' + L('اليوم', 'Today') : ''} ${offPill(d)}</div><div class="card"><div class="list">${dateRoute(vs).map(visitRow).join('')}</div></div>`).join('') : `<div class="card">${empty('cal', L('لا زيارات في هذا العرض', 'No visits in this view'), all.length ? L('غيّر الفلتر لعرض باقي الزيارات.', 'Change the filter to see more.') : L('استخدم زر «إنشاء جدول».', 'Use “Create schedule”.'))}</div>`);
 };
 function calendarHTML(mk, visits) {
   const [y, m] = mk.split('-').map(Number), first = new Date(y, m - 1, 1).getDay(), n = daysInMonth(y, m), T = today();
@@ -2999,14 +3004,15 @@ ACT.smonth = id => { UIS.smonth = id; renderView(); };
 ACT.smode = id => { UIS.smode = id; renderView(); };
 CHANGE.stech = el => { UIS.stech = el.value; renderView(); };
 ACT['gen-month'] = mk => {
-  let n = 0;
+  let n = 0; const fresh = [];
   S.buildings.forEach(b => {
     if (S.visits.some(v => v.buildingId === b.id && v.month === mk)) return;
     const date = scheduleDate(mk, b.maintDay);
     if (!S.contracts.some(c => ['active', 'pending'].includes(c.status) && c.buildingIds.includes(b.id) && c.start <= date && date < c.end)) return;
-    S.visits.push({ id: uid('v'), month: mk, buildingId: b.id, techId: b.techId, date, status: 'scheduled', liftIds: liftsOf(b.id).map(l => l.id), report: null, flags: {} }); n++;
-    if (b.techId) notify('newMaint', b.techId, LL('مهمة صيانة جديدة', 'New maintenance task'), LL(`${b.name} · ${fmtDate(date)}`, `${b.name} · ${fmtDate(date)}`), { view: 'tsched' });
+    const nv = { id: uid('v'), month: mk, buildingId: b.id, techId: b.techId, date, status: 'scheduled', liftIds: liftsOf(b.id).map(l => l.id), report: null, flags: {} }; S.visits.push(nv); fresh.push(nv); n++;
   });
+  if (n && S.settings.schedByLoc !== false) planByLoc(mk);
+  fresh.forEach(v => { const b = building(v.buildingId); if (v.techId) notify('newMaint', v.techId, LL('مهمة صيانة جديدة', 'New maintenance task'), LL(`${b.name} · ${fmtDate(v.date)}`, `${b.name} · ${fmtDate(v.date)}`), { view: 'tsched' }); });
   log(LL(`إنشاء جدول ${MONTHS_AR[+mk.slice(5) - 1]}: ${n} زيارة`, `Created ${MONTHS_EN[+mk.slice(5) - 1]} schedule: ${n} visits`)); save();
   toast(n ? L(`أُنشئت ${n} زيارة وأُبلغ الفنيون`, `${n} visits created; technicians notified`) : L('الجدول مكتمل مسبقاً', 'Schedule already complete'), 'ok'); UIS.smonth = mk; renderView();
 };
@@ -4800,14 +4806,14 @@ ACT['send-visits'] = preTech => {
     ${fld(L('إلى الفني', 'To technician'), sel('tid', techs.map(t => [t.id, t.name]), preTech && tech(preTech) ? preTech : techs[0].id))}
     <div class="row wrap" style="gap:6px"><button type="button" class="btn xs" data-act="sv-pick" data-id="none">${L('غير المُسندة فقط', 'Unassigned only')}</button><button type="button" class="btn xs" data-act="sv-pick" data-id="all">${L('الكل', 'All')}</button><button type="button" class="btn xs" data-act="sv-pick" data-id="clear">${L('لا شيء', 'None')}</button></div>
     <p class="faint" style="margin:0">${L('مرتبة حسب المسار: كل مبنى يليه الأقرب له. المباني المتقاربة تحت نفس المنطقة.', 'Ordered as a route: each building is followed by the nearest one. Buildings close together are grouped.')}</p>
-    <div class="chks">${ord.map((v, i) => { const b = building(v.buildingId), t = tech(v.techId), grp = i === 0 || v._km == null || v._km > 3; const head = grp ? `<div class="sv-area">${ic('pin')} ${esc(cityName(b?.city || ''))}${b?.district ? '، ' + esc(b.district) : ''}</div>` : ''; return `${head}<label class="chk"><input type="checkbox" name="v" value="${v.id}" data-multi="1" data-un="${t ? 0 : 1}" ${t ? '' : 'checked'}><span class="grow"><b>${i + 1}.</b> ${esc(b?.name || '')} <span class="faint">· ${fmtDate(v.date)}${v._km != null && !grp ? ` · ${L('يبعد', 'next')} ${kmTxt(v._km)}` : ''}${!vLL(v) ? ' · ' + L('بدون موقع', 'no location') : ''}</span></span><span class="faint">${t ? esc(t.name) : L('بدون فني', 'Unassigned')}</span></label>`; }).join('')}</div>
+    <div class="chks">${ord.map((v, i) => { const b = building(v.buildingId), t = tech(v.techId), grp = i === 0 || kmOf(v) == null || kmOf(v) > 3; const head = grp ? `<div class="sv-area">${ic('pin')} ${esc(cityName(b?.city || ''))}${b?.district ? '، ' + esc(b.district) : ''}</div>` : ''; return `${head}<label class="chk"><input type="checkbox" name="v" value="${v.id}" data-multi="1" data-un="${t ? 0 : 1}" ${t ? '' : 'checked'}><span class="grow"><b>${i + 1}.</b> ${esc(b?.name || '')} <span class="faint">· ${fmtDate(v.date)}${kmOf(v) != null && !grp ? ` · ${L('يبعد', 'next')} ${kmTxt(kmOf(v))}` : ''}${!vLL(v) ? ' · ' + L('بدون موقع', 'no location') : ''}</span></span><span class="faint">${t ? esc(t.name) : L('بدون فني', 'Unassigned')}</span></label>`; }).join('')}</div>
     <p class="faint" style="margin:0">${ic('bell')} ${L('تصل الزيارات إلى حساب الفني في التطبيق مع إشعار، بدون واتساب.', 'The visits reach the technician’s account in the app with a notification — no WhatsApp.')}</p></form>`,
     foot: `<button class="btn" data-act="close-modal">${L('إلغاء', 'Cancel')}</button><button class="btn pri" type="submit" form="mf">${ic('send')}${L('إرسال', 'Send')}</button>` });
 };
 /* technician’s month list: open visits in route order from where he is now */
 { const v0 = VIEW.tsched; VIEW.tsched = () => { const t = tech(U.id); if (!t) return v0(); const mk = UIS.tsm || monthKey(today()), open = myVisits().filter(v => v.month === mk && v.status !== 'done'); if (!open.length) return v0();
   const ord = routeOrder(open, vLL, t.loc ? [t.loc.lat, t.loc.lng] : null);
-  return `<section class="sec"><div class="sec-h"><h2>${L('مسار اليوم المقترح', 'Suggested route')}</h2><span class="meta">${L('الأقرب أولاً', 'Nearest first')}</span></div><div class="card"><div class="list">${ord.map((v, i) => { const b = building(v.buildingId); return `<div class="li"><span class="k-n" style="background:var(--signal-soft)">${i + 1}</span><div class="grow"><div class="t">${esc(b?.name || '')}</div><div class="s">${esc(cityName(b?.city || ''))}${b?.district ? '، ' + esc(b.district) : ''}${v._km != null ? ` · ${i ? L('من السابق', 'from previous') : L('منك', 'from you')} ${kmTxt(v._km)}` : ''}</div></div><div class="end">${routeBtn(b)}<button class="btn xs pri" data-act="complete" data-id="${v.id}">${L('إتمام', 'Complete')}</button></div></div>`; }).join('')}</div></div></section>` + v0(); }; }
+  return `<section class="sec"><div class="sec-h"><h2>${L('مسار اليوم المقترح', 'Suggested route')}</h2><span class="meta">${L('الأقرب أولاً', 'Nearest first')}</span></div><div class="card"><div class="list">${ord.map((v, i) => { const b = building(v.buildingId); return `<div class="li"><span class="k-n" style="background:var(--signal-soft)">${i + 1}</span><div class="grow"><div class="t">${esc(b?.name || '')}</div><div class="s">${esc(cityName(b?.city || ''))}${b?.district ? '، ' + esc(b.district) : ''}${kmOf(v) != null ? ` · ${i ? L('من السابق', 'from previous') : L('منك', 'from you')} ${kmTxt(kmOf(v))}` : ''}</div></div><div class="end">${routeBtn(b)}<button class="btn xs pri" data-act="complete" data-id="${v.id}">${L('إتمام', 'Complete')}</button></div></div>`; }).join('')}</div></div></section>` + v0(); }; }
 
 /* iPhone stops a web app in the background, so the gap is recorded and the owner alerted. As a backup the technician can share
    his live location from Google Maps (it keeps running in the background); the owner keeps that link here */
@@ -4866,7 +4872,7 @@ VIEW.task = id => {
 };
 UIS.tsm = null;
 VIEW.tsched = () => {
-  const mk = UIS.tsm || monthKey(today()), list = myVisits().filter(v => v.month === mk).sort((a, b) => a.date.localeCompare(b.date)), nx = monthKey(addMonths(mk + '-01', 1)), pv = monthKey(addMonths(mk + '-01', -1));
+  const mk = UIS.tsm || monthKey(today()), list = dateRoute(myVisits().filter(v => v.month === mk).sort((a, b) => a.date.localeCompare(b.date))), nx = monthKey(addMonths(mk + '-01', 1)), pv = monthKey(addMonths(mk + '-01', -1));
   return `${pageHead(L('جدول هذا الشهر', 'This month’s schedule'), L('اضغط زر الاتصال ليتصل الجوال بالعميل مباشرة.', 'Tap the call button and the phone dials the client directly.'))}
   <div class="nav-row"><button class="ibtn" data-act="tsm" data-id="${pv}">${ic(icBack())}</button><h2>${monthLabel(mk)}</h2><button class="ibtn" data-act="tsm" data-id="${nx}">${ic(icFwd())}</button></div>
   <div class="card"><div class="tbl-wrap"><table class="tbl" style="min-width:760px"><thead><tr><th>${L('التاريخ', 'Date')}</th><th>${L('المبنى', 'Building')}</th><th>${L('العميل', 'Client')}</th><th>${L('الجوال', 'Mobile')}</th><th>${L('الموقع', 'Location')}</th><th>${L('الطقس', 'Weather')}</th><th>${L('الحالة', 'Status')}</th><th></th></tr></thead><tbody>
@@ -5093,11 +5099,11 @@ function fillClause(t, k) {
 }
 
 /* ---------- pages are filled block by block and a new page starts when one is full ---------- */
-function flowPages({ top, cont, blocks, foot, cls = '' }) {
+function flowPages({ top, cont, blocks, foot, cls = '', style = '' }) {
   const host = document.createElement('div'); host.className = 'pdf-stage flow-host'; document.body.appendChild(host);
   const pages = []; let body = null, pi = null;
   const newPage = () => {
-    host.insertAdjacentHTML('beforeend', `<div class="page ${cls}" dir="rtl" lang="ar">${wm()}<div class="page-in">${pages.length ? cont(pages.length + 1) : top}<div class="k-flow"></div><div class="k-foot-sp"></div></div></div>`);
+    host.insertAdjacentHTML('beforeend', `<div class="page ${cls}" dir="rtl" lang="ar"${style ? ` style="${style}"` : ''}>${wm()}<div class="page-in">${pages.length ? cont(pages.length + 1) : top}<div class="k-flow"></div><div class="k-foot-sp"></div></div></div>`);
     const pg = host.lastElementChild; pages.push(pg); body = pg.querySelector('.k-flow'); pi = pg.querySelector('.page-in');
   };
   const full = () => pi.scrollHeight > pi.clientHeight + 1;
@@ -5116,7 +5122,7 @@ contractPages = function (k) {
   const phone = (c?.phones && c.phones[0]?.n) || c?.phone1 || '', T = kText(k), no = arTxt(esc(k.number));
   const titleBox = (sub) => `<div class="k-title"><div><h1>عقد صيانة مصاعد</h1><span>${sub}</span></div><div class="k-no"><div><small>رقم العقد</small><b>${no}</b></div><div><small>تاريخ العقد</small><b>${arDate(k.date || k.start)}</b></div></div></div>`;
   const top = `${docHeader()}<div class="k-bism">بسم الله الرحمن الرحيم</div>${titleBox('عقد صيانة دورية شهرية')}`;
-  const cont = n => `${docHeader()}${titleBox(`تابع · الصفحة ${arTxt(n)}`)}`;
+  const cont = n => `${docHeader()}<div class="k-cont"><b>تابع عقد صيانة المصاعد</b><span>رقم العقد: ${no} · الصفحة ${n === 2 ? 'الثانية' : arTxt(n)}</span></div>`;
   const blocks = [
     `<div class="k-info"><div><small>اسم العميل</small><b>${esc(c?.name || '')}</b></div><div><small>الجوال</small><b>${arTxt(esc(phone))}</b></div><div><small>الموقع</small><b>${esc([...new Set(bs.map(b => b.city))].join('، ') || '—')}</b></div><div><small>عدد المصاعد</small><b>${arNum(ls.length)} (${numWordAr(ls.length)})</b></div><div><small>عدد الوقفات</small><b>${stops.length ? stops.map(x => arTxt(x)).join(' / ') : '—'}</b></div><div><small>نوع الأبواب</small><b>${esc(doors)}</b></div></div>`,
     bs.length ? `<table class="k-tbl"><thead><tr><th>م</th><th>المبنى والموقع</th><th>المصاعد</th><th>الوقفات</th><th>الأبواب</th></tr></thead><tbody>${bs.map((b, i) => { const bl = liftsOf(b.id); return `<tr><td>${arNum(i + 1)}</td><td><b>${esc(b.name)}</b> · ${esc(b.city)}${b.district ? '، ' + esc(b.district) : ''}</td><td>${arNum(bl.length)}</td><td>${[...new Set(bl.map(l => l.stops))].map(x => arTxt(x)).join(' / ')}</td><td>${esc([...new Set(bl.map(l => l.door))].join(' / '))}</td></tr>`; }).join('')}</tbody></table>` : '',
@@ -5127,8 +5133,13 @@ contractPages = function (k) {
     `<div class="k-sign"><div class="k-sbox"><h4>الطرف الأول</h4><b>${esc(co.nameAr)}</b><div class="k-sarea">${s.stamp ? `<img class="stamp" src="${s.stamp}" alt="">` : ''}${s.signature ? `<img class="sig" src="${s.signature}" alt="">` : ''}</div><div class="k-sline">التوقيع والختم</div></div>
       <div class="k-sbox"><h4>الطرف الثاني (العميل)</h4><b>${esc(c?.name || '')}</b><div class="k-sarea empty"><span>الختم</span></div><div class="k-sline">التوقيع</div><div class="k-sdate">التاريخ: &nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div></div>`,
   ].filter(Boolean);
-  return flowPages({ top, cont, blocks, cls: 'k-doc', foot: (p, n) => kFoot(`عقد صيانة رقم ${no} · ${esc(c?.name || '')} · ${esc(co.nameAr)}`, p, n) });
+  /* the contract stays on two pages, as the company’s own contract: the text is set a little smaller only when it needs to be */
+  const foot = (p, n) => kFoot(`عقد صيانة رقم ${no} · ${esc(c?.name || '')} · ${esc(co.nameAr)}`, p, n);
+  let pages = null;
+  for (const [f, l, g] of K_FIT) { pages = flowPages({ top, cont, blocks, cls: 'k-doc', style: `--kf:${f}px;--kl:${l};--kg:${g}px`, foot }); if (pages.length <= 2) break; }
+  return pages;
 };
+const K_FIT = [[12.6, 1.85, 5], [12, 1.75, 4], [11.5, 1.65, 3], [11, 1.6, 3], [10.6, 1.55, 2], [10.2, 1.5, 2], [9.8, 1.45, 1], [9.4, 1.4, 1], [9, 1.35, 0]];
 
 /* ---------- professional file names ---------- */
 const safeName = s => String(s || '').replace(/[\\/:*?"<>|#%]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -5159,25 +5170,34 @@ renderPdf = async function (pages, filename) {
   finally { stage.remove(); }
 };
 
-/* ---------- one step: PDF + message straight into WhatsApp (share sheet), logged in the client history ---------- */
+/* ---------- send to the client: his WhatsApp chat opens directly (by his saved number) with the message ready,
+   then the PDF follows in one tap. A web page cannot put a file into a chat by itself, so the file goes through the
+   phone’s share menu, where WhatsApp lists this client first (he was just opened). ---------- */
 async function shareDoc({ pages, filename, text, phone, onSent, title }) {
+  const intl = phone ? phoneIntl(phone) : '', direct = /^\d{9,15}$/.test(intl);
+  if (direct) { try { window.open(waHref(phone, text), '_blank'); } catch (e) {} }   /* still inside the tap, so the phone allows it */
   await docFonts();
   const blob = await renderPdf(pages, filename); if (!blob) return false;
   const file = new File([blob], filename, { type: 'application/pdf' }), canShare = !!(navigator.canShare && navigator.canShare({ files: [file] })), url = URL.createObjectURL(blob);
-  try { await navigator.clipboard.writeText(text); } catch (e) {}
+  let done = false; const sent = () => { if (!done) { done = true; onSent && onSent(); } };
+  if (direct) sent();
+  else { try { await navigator.clipboard.writeText(text); } catch (e) {} }
   return new Promise(res => {
-    const m = openModal({ title: title || L('الملف جاهز للإرسال', 'Ready to send'), body: `<div class="row" style="gap:12px"><span class="lead-ic">${ic('file')}</span><div class="grow"><b style="word-break:break-word">${esc(filename)}</b><div class="faint">${L('الرسالة منسوخة أيضاً، الصقها إن لم تظهر.', 'The message is copied too; paste it if it doesn’t appear.')}</div></div></div>
-      <p class="faint" style="margin-top:12px">${canShare ? L('اضغط «إرسال واتساب»، اختر واتساب ثم العميل. يُرسل الملف والرسالة معاً.', 'Tap “Send on WhatsApp”, choose WhatsApp, then the client. The file and message go together.') : L('هذا الجهاز لا يرسل الملفات مباشرة: سيُحفظ الملف وتُفتح محادثة العميل، ثم أرفق الملف.', 'This device can’t send files directly: the file is saved and the client chat opens; then attach the file.')}</p>`,
-      foot: `<a class="btn" href="${url}" target="_blank" rel="noopener" download="${esc(filename)}">${ic('eye')}${L('فتح', 'Open')}</a><button class="btn wa" data-x="send">${ic('chat')}${L('إرسال واتساب', 'Send on WhatsApp')}</button>` });
+    const body = direct
+      ? `<div class="sd-step ok"><span class="sd-n">${ic('check')}</span><div class="grow"><b>${L('فُتحت محادثة العميل والرسالة فيها', 'The client’s chat is open with the message')}</b><div class="faint">${L('اضغط إرسال في واتساب، ثم عُد إلى هنا.', 'Tap send in WhatsApp, then come back here.')}</div></div></div>
+         <div class="sd-step"><span class="sd-n">٢</span><div class="grow"><b>${L('أرسل ملف العقد', 'Send the PDF file')}</b><div class="faint" style="word-break:break-word">${esc(filename)}</div><div class="faint">${canShare ? L('اضغط «إرسال الملف» ← واتساب ← العميل يظهر أول الأسماء.', 'Tap “Send file” → WhatsApp → the client is first in the list.') : L('يُحفظ الملف: اسحبه إلى نفس المحادثة.', 'The file is saved: drag it into the same chat.')}</div></div></div>`
+      : `<div class="row" style="gap:12px"><span class="lead-ic">${ic('file')}</span><div class="grow"><b style="word-break:break-word">${esc(filename)}</b><div class="faint">${L('لا يوجد رقم جوال لهذا العميل: اختر المحادثة بنفسك. الرسالة منسوخة أيضاً.', 'No mobile number saved for this client: choose the chat yourself. The message is copied too.')}</div></div></div>`;
+    const m = openModal({ title: title || L('الملف جاهز للإرسال', 'Ready to send'), body,
+      foot: `${direct ? `<a class="btn" href="${waHref(phone, text)}" target="_blank" rel="noopener">${ic('chat')}${L('فتح المحادثة', 'Open chat')}</a>` : `<a class="btn" href="${url}" target="_blank" rel="noopener" download="${esc(filename)}">${ic('eye')}${L('فتح', 'Open')}</a>`}<button class="btn wa" data-x="send">${ic('send')}${direct ? L('إرسال الملف', 'Send file') : L('إرسال واتساب', 'Send on WhatsApp')}</button>` });
     m.addEventListener('click', async e => {
       const b = e.target.closest('[data-x]'); if (!b) return;
       if (canShare) {
-        try { await navigator.share({ files: [file], text }); closeModal(m); onSent && onSent(); res(true); }
+        try { await navigator.share(direct ? { files: [file] } : { files: [file], text }); closeModal(m); sent(); res(true); }
         catch (err) { if (err && err.name === 'AbortError') return; toast(L('تعذّرت المشاركة.', 'Sharing didn’t work.'), 'err'); }
       } else {
         const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
-        if (phone) window.open(waHref(phone, text), '_blank');
-        closeModal(m); onSent && onSent(); res(true);
+        if (!direct && phone) window.open(waHref(phone, text), '_blank');
+        closeModal(m); sent(); res(true);
       }
     });
     setTimeout(() => URL.revokeObjectURL(url), 10 * 60000);
@@ -5375,6 +5395,72 @@ CHANGE['reply-days'] = el => { S.settings.replyDays = Math.max(1, +el.value || 3
 CHANGE['renew-disc'] = el => { S.settings.renewDisc = Math.max(0, +el.value || 0); save(); };
 /* building page: mark as critical */
 { const v0 = VIEW.building, m0 = VIEW.building && VIEW.building.mount; if (v0) { VIEW.building = id => { const b = building(id), h = v0(id); return b ? `<div class="row wrap" style="gap:8px;margin-bottom:10px">${b.critical ? `<span class="pill crit">${ic('alert')}${L('موقع حرج', 'Critical site')}</span>` : ''}<button class="btn sm" data-act="b-crit" data-id="${id}">${ic('alert')}${b.critical ? L('إلغاء «حرج»', 'Not critical') : L('تعيين كموقع حرج', 'Mark as critical')}</button><button class="btn sm" data-act="set-loc" data-id="${id}">${ic('pin')}${L('الموقع على الخريطة', 'Location on the map')}</button></div>` + h : h; }; if (m0) VIEW.building.mount = m0; } }
+
+/* ================= Monthly schedule by location: one area's buildings together, then the next nearest area ================= */
+/* distances are kept beside the visits (never written into them, so nothing extra is synced) */
+const RKM = new WeakMap();
+const kmOf = x => (RKM.has(x) ? RKM.get(x) : null);
+routeOrder = function (items, ll, start) {
+  const withLoc = items.filter(x => ll(x)), noLoc = items.filter(x => !ll(x)), out = [];
+  let cur = start || null;
+  if (!cur && withLoc.length) {   /* start at one end of the route (the building farthest from the middle), not in the middle */
+    const pts = withLoc.map(ll), cx = sum(pts.map(p => p[0])) / pts.length, cy = sum(pts.map(p => p[1])) / pts.length;
+    let fi = 0, fd = -1; pts.forEach((p, i) => { const d = kmBetweenRaw(cx, cy, p[0], p[1]); if (d > fd) { fd = d; fi = i; } });
+    cur = pts[fi];
+  }
+  const left = [...withLoc];
+  while (left.length) {
+    let bi = 0, bd = 1e9;
+    left.forEach((x, i) => { const p = ll(x), d = cur ? kmBetweenRaw(cur[0], cur[1], p[0], p[1]) : 0; if (d < bd) { bd = d; bi = i; } });
+    const x = left.splice(bi, 1)[0]; RKM.set(x, out.length ? bd : null); out.push(x); cur = ll(x);
+  }
+  noLoc.forEach(x => { RKM.set(x, null); out.push(x); });
+  return out;
+};
+
+/* a list already in date order: inside each day, nearest next; each day starts where the day before ended */
+function dateRoute(list) {
+  const out = []; let last = null, i = 0;
+  while (i < list.length) {
+    const d = list[i].date, day = []; while (i < list.length && list[i].date === d) day.push(list[i++]);
+    const ord = day.length > 1 ? routeOrder(day, vLL, last) : day; out.push(...ord);
+    const lp = [...ord].reverse().map(vLL).find(Boolean); if (lp) last = lp;
+  }
+  return out;
+}
+
+/* give the month's open visits their days by route: per technician, nearby buildings on the same / next days */
+function planByLoc(mk, { tell = false } = {}) {
+  const T = today(), [y, m] = mk.split('-').map(Number), end = `${mk}-${pad(daysInMonth(y, m))}`;
+  const from = `${mk}-01` > T ? `${mk}-01` : T; if (from > end) return 0;
+  const days = []; for (let d = from; d <= end; d = addDays(d, 1)) if (!S.settings.avoidOffDays || !isOffDay(d)) days.push(d);
+  if (!days.length) return 0;
+  const open = S.visits.filter(v => v.month === mk && v.status !== 'done' && !v.checkIn && v.date >= from);
+  const groups = {}; open.forEach(v => (groups[v.techId || '-'] = groups[v.techId || '-'] || []).push(v));
+  let moved = 0; const who = {};
+  Object.entries(groups).forEach(([tid, g]) => {
+    const ord = routeOrder(g, vLL), per = Math.max(1, Math.ceil(ord.length / days.length));
+    ord.forEach((v, i) => { const nd = days[Math.min(days.length - 1, Math.floor(i / per))]; if (v.date !== nd) { v.date = nd; moved++; if (tid !== '-') who[tid] = (who[tid] || 0) + 1; } });
+  });
+  if (tell) Object.entries(who).forEach(([tid, n]) => { if (tech(tid)) notify('techChange', tid, LL('رُتّبت زياراتك حسب الموقع', 'Your visits are now ordered by location'), LL(`${n} زيارة: المباني المتقاربة في أيام متتالية`, `${n} visits: nearby buildings on following days`), { view: 'tsched' }, `n-rl-${tid}-${mk}-${Date.now()}`); });
+  return moved;
+}
+
+ACT['plan-loc'] = () => {
+  const mk = UIS.smonth || monthKey(today()), n = planByLoc(mk, { tell: true });
+  log(LL(`ترتيب جدول ${MONTHS_AR[+mk.slice(5) - 1]} حسب الموقع`, `${MONTHS_EN[+mk.slice(5) - 1]} schedule ordered by location`)); save(); renderView();
+  toast(n ? L(`رُتّب الجدول حسب الموقع (${n} زيارة تغيّر يومها) وأُبلغ الفنيون`, `Ordered by location (${n} visits moved); technicians notified`) : L('الجدول مرتب حسب الموقع', 'Already ordered by location'), 'ok');
+};
+{ const v0 = VIEW.schedule; VIEW.schedule = () => { const h = v0(); const strip = `<div class="loc-strip">${ic('pin')}<span class="grow"><b>${L('مرتّب حسب الموقع', 'Ordered by location')}</b><small>${L('مباني المنطقة الواحدة معاً، ثم المنطقة الأقرب بعدها.', 'One area’s buildings together, then the nearest next area.')}</small></span><button class="btn sm" data-act="plan-loc">${ic('refresh')}${L('إعادة الترتيب', 'Re-order')}</button></div>`; const i = h.indexOf('<div class="nav-row">'); return i < 0 ? h : h.slice(0, i) + strip + h.slice(i); }; }
+
+/* once after this update: the running month is ordered by location (the owner asked for it) */
+function planOnce() {
+  if (!U || U.role !== 'owner' || S.settings.schedLocV === 1) return;
+  if (typeof SYNC !== 'undefined' && SYNC.started && SYNC.settingsState !== 'ok') return;
+  S.settings.schedLocV = 1; planByLoc(monthKey(today()), { tell: true }); save();
+}
+setInterval(() => { try { planOnce(); } catch (e) {} }, 20000);
+setTimeout(() => { try { planOnce(); } catch (e) {} }, 6000);
 
 /* ================= Offline region map (western Saudi Arabia) ================= */
 const MAP = { lng0: 38.6, lng1: 43.2, lat0: 17.7, lat1: 22.1, W: 1000 };
